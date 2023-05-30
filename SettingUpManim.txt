@@ -1,0 +1,4 @@
+1. git clone manin library
+2. cd to manim library directory
+3. run pip install -e .
+4. run manim from any whwre
