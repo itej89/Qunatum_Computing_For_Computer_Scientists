@@ -1,0 +1,274 @@
+\documentclass[10pt,a4paper]{article}
+
+% --- Core Packages (only what you actually need) ---
+\usepackage[margin=0.4in]{geometry}
+\usepackage{multicol}
+\usepackage{amsmath,amssymb}
+\usepackage{physics}
+\usepackage{titlesec}
+
+\setlength{\footskip}{20pt}
+
+% --- Kill whitespace ---
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% --- Compact section titles ---
+\titleformat{\section}{\small\bfseries}{}{0em}{}
+\titlespacing*{\section}{0pt}{4pt}{2pt}
+
+% --- Column spacing ---
+\setlength{\columnsep}{10pt}
+
+\begin{document}
+\footnotesize
+
+\begin{multicols}{2}
+
+\begin{center}
+\textbf{\large Quantum Mechanics Cheet Sheet}\\
+\textit{by Tej}\\
+
+\textit{Derived from Leonard Susskind's \textit{The Theoretical Minimum (Ch 1..7)}}\\
+\textit{(Finite-Dimensional Hilbert Space)}\\[-0.6em]
+\end{center}
+
+% =========================
+\section{HILBERT SPACE}
+
+\textbf{Complex Vectors:} $\ket{\psi} \in \mathbb{C}^n$ 
+
+\textbf{Norm:} $\|\psi\|^2 = \braket{\psi}$ 
+
+\textbf{Hermitian:} $A^\dagger = A$; eigvals $\in \mathbb{R}$; \\
+$\circ\,$ eigvecs orthogonal (distinct eigvals); \\
+$\circ\, $ degeneracy $\Rightarrow$ simultaneous eigvecs; \\
+$\circ\, $ Hermitian $L,M \Rightarrow i[L,M]$
+
+\textbf{Unitary:} $U^\dagger U = I$, norm preserved\\
+
+% =========================
+\section{OPERATORS}
+
+\textbf{Observable:} Hermitian operator\\
+\textbf{Eigen eq:} $A\ket{\psi} = a\ket{\psi}$\\
+\textbf{Expectation:} $\langle A \rangle = \bra{\psi}A\ket{\psi}$\\
+\textbf{Commutator:} $[A,B] = AB - BA$\\
+
+% =========================
+\section{SPIN STATES: $\{\ket{u}, \ket{d}\}_{\text{basis}}$}
+$\ket{u} = 1\ket{u} + 0\ket{d}$\\
+$\ket{d} = 0\ket{u} + 1\ket{d}$\\
+$\ket{r} = 1/\sqrt(2) \ket{u} + 1/\sqrt(2) \ket{d}$\\
+$\ket{l} = 1/\sqrt(2) \ket{u} - 1/\sqrt(2) \ket{d}$\\
+$\ket{i} = 1/\sqrt(2) \ket{u} + i/\sqrt(2) \ket{d}$\\
+$\ket{o} = 1/\sqrt(2) \ket{u} - i/\sqrt(2) \ket{d}$\\
+
+\section{SPIN OPERATORS: $\{\ket{u}, \ket{d}\}_{\text{basis}}$}
+
+$\sigma_x = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}$,
+$\sigma_y = \begin{pmatrix}0 & -i \\ i & 0\end{pmatrix}$,
+$\sigma_z = \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}$ \\
+
+\textbf{Spin Polarization:} $\langle \sigma_x \rangle^2 + \langle \sigma_y \rangle^2 + \langle \sigma_z \rangle^2 = 1$ \\
+\textbf{Spin Component form :} $\sigma_n = \sigma_x n_x + \sigma_y n_y + \sigma_z n_z$\\
+$\langle \sigma_n .n \rangle = 1$\\
+
+% =========================
+\section{STATE - TIME EVOLUTION}
+$ \ket{\psi(t)}= U(t)) \ket{\psi(0)} $\\
+\textbf{Schr\"odinger:} $\hbar \pdv{}{t}\ket{\psi} = -iH(t)\ket{\psi}$\\
+\textbf{Evolution:} \\
+$\alpha_j(t) = \alpha_j(0) e^{-(i/\hbar) E_j t}$\\
+$\ket{\psi(t)} = e^{-iE_jt/\hbar}\ket{\psi(0)}$ ($H$ const.)\\
+
+\section{EXPECTATION}
+$\langle L \rangle = \bra{\psi}L\ket{\psi} = \sum_\lambda \lambda P(\lambda)$ \\
+\textbf{Commutator:} $[L,M]=LM-ML$ \\
+\textbf{Time evol:} $\frac{d}{dt}\langle L\rangle = \frac{i}{\hbar}\langle[H,L]\rangle = -\frac{i}{\hbar}\langle[L,H]\rangle$ \\
+\textbf{Conserved:} $[Q,H]=0 \Rightarrow [Q^n,H]=0$\\
+
+\section{SOLVING STATE EVOLUTION}
+\textbf{1.} Define Hamiltonian $H$ \\
+\textbf{2.} Prepare initial state $\ket{\psi(0)}$ \\
+\textbf{3.} Find eigenbasis of $H$ \\
+\textbf{4.} Express state in eigenbasis:\\
+$\ket{\psi_E(0)} = [E_1, E_2, \dots]^{-1} \ket{\psi(0)}$\\
+\textbf{5.} Expand state:\\
+$\ket{\psi_E(t)} = \sum_j \alpha_j(t) \ket{E_j}$\\
+\textbf{6.} Time evolution:\\
+$\ket{\psi_E(t)} = \sum_j \alpha_j(0) e^{-i E_j t / \hbar} \ket{E_j}$\\
+
+\section{SIMULTANEOUS EIG.VECTORS}
+
+\textbf{Commuting:} $[L,M]=0 \Rightarrow$ common eigbasis; simult. diag \\
+$\circ\, \text{Commutation allows simultaneous measurement}$\\
+
+\section{WAVEFUNCTION \& BASIS}
+\textbf{Basis:} complete orthonormal $\{\ket{i}\}$ spans space \\
+\textbf{State:} $\ket{\psi}=\sum_i c_i\ket{i}$, $\sum_i |c_i|^2=1$ \\
+\textbf{Wavefn:} $\psi(i)=\braket{i|\psi}$; $|\psi(i)|^2$ = prob. \\
+\textbf{Basis dependence:} $\ket{\psi}$ invariant; $\psi(i)$ depends on chosen eigbasis \\
+\textbf{Change basis:} $c_i=\braket{i|\psi}$; coeffs change, state unchanged \\
+\textbf{Examples:} canonical basis $\{\ket{0},\ket{1}\}$; \\
+Bell basis $\frac{1}{\sqrt{2}}(\ket{00}\pm\ket{11})$, 
+$\frac{1}{\sqrt{2}}(\ket{01}\pm\ket{10})$ \\
+
+\textbf{2D HERMITIAN } \\
+$H=a\sigma_x+b\sigma_y+c\sigma_z+dI$\\
+
+\section{UNCERTAINTY PRINCIPLE}
+\textbf{Expectation:} $\langle A \rangle = \sum_a a\,P(a)$ \\
+\textbf{Std. dev:} $\bar{A}=A-\langle A\rangle I$; eigenvalues $a-\langle A\rangle$ \\
+\textbf{Variance:} 
+$(\Delta A)^2 = \sum_a (a-\langle A\rangle)^2 P(a) 
+= \langle \psi | \bar{A}^2 | \psi \rangle$ \\
+\textbf{Shift invariance:} $(\Delta A)^2=\langle \bar{A}^2\rangle$, 
+$[\,\bar{A},\bar{B}\,]=[A,B]$ \\
+\textbf{Uncertainty:} 
+$\Delta A\,\Delta B \ge \tfrac{1}{2}\left| \langle \psi | [A,B] | \psi \rangle \right|$\\
+
+\section{CLASSICAL CORRELATION}
+
+\textbf{Setup 1:} Charlie prepares system; Alice and Bob measure; \\
+$\circ\,\text{Outcomes: } \sigma=\pm1 \text{ }(penny =-1, dime =+1)$ \\
+$\circ\,\text{Means: } \langle \sigma_A \rangle = \langle \sigma_B \rangle = 0$\\
+$\circ\,\text{Correlation: } \langle \sigma_A \sigma_B \rangle = -1$\\
+$\circ\,\text{Relation: } \langle \sigma_A \sigma_B \rangle \neq \langle \sigma_A \rangle \langle \sigma_B \rangle $\\
+\textbf{Setup 2:} Charlie-A prepares system, Alice measure; \\ Charlie-B prepares system, Bob measure;\\
+$\circ\,\text{Correlation} = 0$ \\
+\textbf{Probability:}  $P(a,b)=P(a)P(b)$ iff $a,b$ independent\\
+
+\section{TENSOR PRODUCT: $\{S_{a}, S_{b}\}_{basis}; dim\{N_a, N_b\} $}
+($S_a \otimes S_b$); $\dim(S_a\otimes S_b)=N_aN_b$ \\
+\textbf{States:} $\ket{\psi}\in S_a$, $\ket{\phi}\in S_b$; no cross-space addition \\
+\textbf{Combined Basis:} $\{\ket{a_i b_j}\}=\{\ket{a_i}\otimes\ket{b_j}\}; $\\
+$\langle ab|a'b'\rangle=\delta_{aa'}\delta_{bb'}$; $=1 \iff a=a',\, b=b'$\\
+\textbf{Combined State:} $\ket{\psi} = \sum_{a,b} \psi(a,b)\ket{ab}$\\
+
+\section{TWO SPIN SYSTEM: }
+$\{\ket{u_j}, \ket{d_j} \}_\text{basis} \mid  j \in \{a, b\} $\\
+\textbf{States: $\ket{\psi_a}=\alpha_u|u\}+\alpha_d|d\}; \ket{\psi_b}=\beta_u\ket{u}+\beta_d\ket{d} $}\\
+\textbf{Product States: 4 DOF} \\
+$\circ\ket{\psi_{a,b}} = \alpha_u\beta_u\ket{uu}+ \alpha_u\beta_d\ket{ud} + \alpha_d\beta_u\ket{du} + \alpha_d\beta_d\ket{dd} $\\
+$\circ \ket{\psi_a}\otimes\ket{\psi_b}$ 
+$\Rightarrow \sum_{ij}\alpha_i\beta_j\ket{ij}$; 
+$8$ real $\to 4$ (norm + phase/spin) \\
+$\circ\, \text{Minimal Parameterized State:} $ $\ket{\psi_a} = \cos\frac{\theta_a}{2}\ket{u} + e^{i\phi_a}\sin\frac{\theta_a}{2}\ket{d} $\\
+\textbf{General State: 6 DOF} \\
+$\circ \ket{\psi_{a,b}} = \psi_{uu}\ket{uu}+ \psi_{ud}\ket{ud} + \psi_{du}\ket{du} + \psi_{dd}\ket{dd} $\\
+$\circ \ket{\psi}=\sum_{ij}\psi_{ij}\ket{ij}$; $8$ real $\to 6$ (global norm + phase) \\
+\textbf{Entangled States: }\\
+Complete description of combined system\\
+\textbf{Maximally Entangled States:} $\{ \ket{singlet},  \ket{triplet (3D)}\}$\\
+$\circ\,\text{Nothing can be known about individual subsystems}$\\
+$\circ\ket{singlet} = 1/\sqrt{2}(\ket{ud}-\ket{du})$ \\ 
+$\circ\left\{
+\begin{aligned}
+\ket{T_+}&=\ket{uu}\\
+\ket{T_0}&=\tfrac{1}{\sqrt{2}}(\ket{ud}+\ket{du})\\
+\ket{T_-}&=\ket{dd}
+\end{aligned}
+\right.\ \ket{triplet (3D)}$ \\
+$\circ\ket{singlet} \oplus \ket{triplet (3D)} = \text{full 4D space}$ \\
+
+\textbf{Observables: $\{\sigma_x, \sigma_y, \sigma_z\} \in S_a; \{\tau_x, \tau_y, \tau_z\} \in S_b $}\\
+$\circ\,\sigma_z|u\}=|u\}; \sigma_z|d\}=-|d\};$\\ 
+$\sigma_x|u\} = |d\}; \sigma_x|d\} = |u\}; \sigma_y|u\} = i|d\}; \sigma_z|d\} = -i|u\}; $\\
+$\circ\,\tau_z\ket{u}=\ket{u}; \tau_z\ket{d}=-\ket{d};$\\ 
+$\tau_x\ket{u} = |d\}; \tau_x\ket{d} = |u\}; \tau_y\ket{u} = i\ket{d}; \tau_z|d\} = -i\ket{u}; $\\
+$\circ\,\sigma_x\ket{du} = (\sigma_x \otimes I)(|d\} \otimes \ket{u}); \tau_z\ket{du} = (I \otimes \tau_z)(|d\} \otimes \ket{u}) $\\
+$\circ\,\text{In Product States, Expectation values of ind. components of } \\\sigma,\, \tau \text{ remains same  ie., Spin Polarization Principle holds.} $  \\
+$\langle \sigma_x \rangle^2 + \langle \sigma_y \rangle^2 + \langle \sigma_z \rangle^2 = 1$\\
+$\circ\, \text{In Maximally Entangled State: Expectation value is zero}$ \\
+$\langle sing|\sigma_x|sing \rangle = \langle sing|\sigma_y |sing \rangle = \langle sing|\sigma_z |sing \rangle = 0$\\
+\textbf{Composite Observables: }\\
+$\circ\,\tau_z\sigma_z\ket{sing} = -\ket{sing}$\\
+$\circ\,\tau_x\sigma_x\ket{sing} = -\ket{sing}$ (Non Obvious)\\
+$\circ\,\tau_z\sigma_z\ket{T_0} = -\ket{T_0}$\\
+$\circ\,\tau_z\sigma_z\ket{T_+} = \ket{T_+}$\\
+$\circ\,\tau_z\sigma_z\ket{T_-} = \ket{T_-}$\\
+$\circ\,\text{Expectation values}: i \in {x,y,z}$\\
+{\small
+$\begin{array}{c|c|c}
+\text{State} & \langle \sigma_i \rangle & \langle \sigma_i\otimes\sigma_i \rangle \\
+\hline
+T_+ & (0,0,1) & (0,0,1) \\
+T_- & (0,0,-1) & (0,0,1) \\
+T_0 & (0,0,0) & (1,1,-1) \\
+S   & (0,0,0) & (-1,-1,-1)
+\end{array}$
+}\\
+$\circ\,\text{The Combined Operator: Energy based measurement}$ \\
+$(\sigma\cdot\tau)=\sigma_x\otimes\tau_x + \sigma_y\otimes\tau_y + \sigma_z\otimes\tau_z$ \\
+$(\sigma\cdot\tau)\ket{uu}=\ket{uu}$ \\
+$(\sigma\cdot\tau)\ket{dd}=\ket{dd}$ \\
+$(\sigma\cdot\tau)\ket{ud}=2\ket{du}-\ket{ud}$ \\
+$(\sigma\cdot\tau)\ket{du}=2\ket{ud}-\ket{du}$ \\
+
+$(\sigma\cdot\tau)\ket{T_i}=+\ket{T_i} | \text{ All Triplets with +1 eigval}$ \\
+$(\sigma\cdot\tau)\ket{S}=-3\ket{S}$ \\
+
+\section{TENSOR PRODUCT OF MATRICES}
+$\textbf{Kronecker Product: } A \otimes B =  \begin{pmatrix}A_{11}B& A_{12}B \\ A_{21}B & A_{22}B\end{pmatrix}$ \\
+$\circ\,(A \otimes B) (a \otimes b) = (Aa \otimes Bb)$\\
+\textbf{Outer Product:} $\ket{\psi}\bra{\phi}$; $(\ket{\psi}\bra{\phi})\ket{A}=\ket{\psi}\langle\phi|A\rangle$ \\
+\textbf{Projection Operator:} $\ket{\psi}\bra{\psi}$; Hermitian; eig: $1$ (on $\ket{\psi}$), $0$ (orthog) \\
+$\circ\,(\ket{\psi}\bra{\psi})^2=\ket{\psi}\bra{\psi}$; $\Tr=1$; $\sum_i\ket{i}\bra{i}=I$\\
+$\circ\,\Tr\ket{\psi}\bra{\psi}L = \langle\psi|L|\psi\rangle =  \langle L\rangle$\\
+
+\section{DENSITY MATRICES (OPERATORS)}
+$\text{When uncertain abt. prepared state: } \rho$\\
+$\textbf{Pure State: }\langle L \rangle = \Tr \ket{\psi}\bra{\psi}L = \Tr \rho L$\\
+$\circ\, \text{Density Matrix is the Projection Operator}$\\
+$\textbf{Mixed State: }$\\
+$ \langle L \rangle = 1/2 \Tr \ket{\psi}\bra{\psi}L  + 1/2\Tr\ket{\phi}\bra{\phi}L$\\
+$\langle L \rangle = \Tr 1/2 \ket{\psi}\bra{\psi}+1/2 \ket{\phi}\bra{\phi} L$\\
+$\langle L \rangle = \Tr \rho L \mid \rho = 1/2 \ket{\psi}\bra{\psi}+1/2 \ket{\phi}\bra{\phi} $\\
+$\circ\,\text{General Form: }\\ \rho = P_1\ket{\phi_1}\bra{\phi_1}+ P_2\ket{\phi_2}\bra{\phi_2} +..$
+$\langle L \rangle = \sum_{a,a`}L_{a`,a}\rho_{a,a`}$\\
+$\textbf{Entanglement}$\\
+$A_{sys}, B_{sys}; \text{ suppose we are interested in measurmt. of obser. } \\L_{a} \text{ for } A_{sys}$\\
+$\langle L\rangle  = \sum_{a'b',ab}\psi^*(a'b')L_{a'b',ab}\psi(ab)$\\
+$\langle L\rangle  = \sum_{a`,b,a}\psi^*(a'b)L_{a',a}\psi(ab)$\\
+$\rho_{aa'} = \sum_{b}\psi^*(a'b')\psi(ab)$\\
+$\circ\,\textbf{What are }L_{a',a} , \rho_{aa'} ?$\\
+$ \text{- Alice's observable and density matrix while assuming} \\\text{ Bob's state doesn't change}$\\
+$\circ\,\textbf{Alice's state transitions, assuming const Bob's state}$\\
+$\text{- }\rho_{a}(0'0)_{0'->0} = \rho_{a'b', ab}(00)'(00)+ \rho_{a'b', ab}(01)'(01)$\\
+$\text{- }\rho_{a}(0'1)_{0'->1} = \rho_{a'b', ab}(00)'(10)+ \rho_{a'b', ab}(01)'(11)$\\ 
+$\text{- }\rho_{a}(1'0)_{1'->0} = \rho_{a'b', ab}(10)'(00)+ \rho_{a'b', ab}(11)'(01)$\\ 
+$\text{- }\rho_{a}(1'1)_{1'->1} = \rho_{a'b', ab}(10)'(10)+ \rho_{a'b', ab}(11)'(11)$\\
+$-  - \text{same steps for }L_{a',a}$\\
+$\circ\, \textbf{Pure State DM (} \rho \text{) of a subsystem can be written as the }\\\text{ projection operator of a state }\psi;$\\
+$\text{- }\rho=\ket{\psi}\bra{\psi}; \rho^2 = \rho, \Tr(\rho^2) = 1$\\
+$\circ\,\textbf{Mixed state DM (} \rho \text{) of a subsystem can not be written in the }\\\text{  form of a }\text{projection operator}$\\
+$\text{- }\rho_{mixed}; \rho^2 \neq \rho, \Tr(\rho^2) < 1$\\
+
+\section{TESTS FOR ENTANGLEMENT}
+$\textbf{Correlation Test:}$\\
+$\circ\,\text{Given observables A, B and their Product State AB}$ \\
+$\text{\hspace{1em} a.  Correlation } C(A, B) = \langle AB \rangle - \langle A \rangle \langle B \rangle \\ \text{\hspace{1em} b. Sign indicates the correlation direction}$\\
+$\textbf{Density Matrix Test:}$\\
+$\circ\,\text{If we  have the Composite System with one of the }\\\text{ subsystem's Density Matrix } \rho_{a'a}$\\
+$\text{1. Compute the Eigen Values of the Density Matrix}$\\
+$\text{\hspace{1em} a. Pure State: eig vals = \{1, zeroes\}}$\\
+$\text{\hspace{1em} b. Mixed State: eig vals = \{sum to 1\}}$\\
+$\text{\hspace{1em} c. Max Entagled State: } \rho_{a'a} = aI;  \text{eig.vals = } \{1/N_a\}$\\
+$\text{2. Pure State } \implies \text{Complete Subsystem information}$\\
+$\text{3. Max.Ent State } \\ 
+\text{\hspace{1em}} \implies \text{Zero information abt. own's Subsystem}\\
+\text{\hspace{1em}} \implies \text{Can predict behaviour of other Subsystems}$\\
+
+\section{NON LOCALITY  (Faster than Speed of Light)}
+$\text{Entaglement leads to non locality. But, local subsytem's}$\\ $\text{unitary evolutions doesn't effect the remote subsystem's} \\ \text{Density Matrix (avoids faster than speed of light problem).}$\\\\\\\\\\\
+
+\noindent\fbox{
+\parbox{\columnwidth}{
+\centering
+\textbf{Derived from \textit{Quantum Mechanics: The Theoretical Minimum}}\\
+\textit{Leonard Susskind \& Art Friedman}
+}}
+
+\end{multicols}
+\end{document}
